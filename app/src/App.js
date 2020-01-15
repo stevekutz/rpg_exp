@@ -1,11 +1,15 @@
 import React from 'react';
-import {Player} from './features/player'
+import {Player, Title} from './features/player'
+
 
 function App() {
   return (
     <div className="App">
         Something new
         <Player/>
+        <Title/>
+
+
     </div>
   );
 }
