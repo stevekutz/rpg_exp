@@ -7,11 +7,3 @@ export const Player = (props) => {
         </div>
     )
 }
-
-export const Title = (props) => {
-    return (
-        <div>
-            Title
-        </div>
-    )
-}

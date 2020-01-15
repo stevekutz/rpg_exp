@@ -1,9 +1,9 @@
 // manages PLayer comp state
 // action is waht we dispatch to reducer
 
-const intialState = {
+const initialState = {
     position: [0,0],
-    
+
 }
 
 const playerReducer = (state = initialState, action) => {
