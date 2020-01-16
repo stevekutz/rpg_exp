@@ -4,7 +4,7 @@ import walkSprite from './player_walk.png'
 
 import handleMovement from './movement'
 
-export const Player = (props) => {
+function Player(props){
     return (
         <div
             style = {{

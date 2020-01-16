@@ -8,6 +8,11 @@ const initialState = {
 
 const playerReducer = (state = initialState, action) => {
     switch(action.type) {
+        case 'MOVE_PLAYER':
+            return {                 // this is the payload we get back
+                ...action.payload   // position: getNewPosition(direction)
+            }
+
 
         default: 
             return state
