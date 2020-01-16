@@ -1,9 +1,17 @@
 import React from 'react';
 
 
-
+// set up so that sprite with case 5 & up CANNOT be walked through
 function getTileSprite(type){
+    switch(type) {
+        case 0:
+            return 'grass'
 
+        case 5:
+            return 'rock'
+        case 6:
+            return 'tree'        
+    }
 }
 
 
