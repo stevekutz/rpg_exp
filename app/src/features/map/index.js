@@ -1,6 +1,8 @@
 import React from 'react';
 import {SPRITE_SIZE} from '../../config/constants';
 
+import './styles.css'
+
 // set up so that sprite with case 5 & up CANNOT be walked through
 function getTileSprite(type){
     switch(type) {
@@ -26,15 +28,16 @@ function MapTile(props){
             height: SPRITE_SIZE,
             width: SPRITE_SIZE
         }}
-    >
-        {props.tile}
-    </div>
-
-
+    />
 }
 
 function MapRow(props) {
-    return  <div className = "row">
+    return  <div 
+        className = "row"
+        style = {{
+            height: SPRITE_SIZE,
+        }}
+        >
     {
         props.tiles.map(tile => <MapTile tile = {tile} />)
     }    
