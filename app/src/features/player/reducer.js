@@ -1,5 +1,5 @@
 // manages PLayer comp state
-// action is waht we dispatch to reducer
+// action is what we dispatch to reducer
 
 const initialState = {
     position: [0,0],
