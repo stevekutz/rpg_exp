@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {SPRITE_SIZE} from '../../config/constants';
 
 // set up so that sprite with case 5 & up CANNOT be walked through
 function getTileSprite(type){
@@ -17,7 +17,18 @@ function getTileSprite(type){
 
 
 function MapTile(props){
-    return <div className = "tile"> {props.tile} </div>
+    return <div 
+    
+
+        //className = "tile"                                // NOTICE THIS !!!
+        className = {`tile ${getTileSprite(props.tile)}`}  // use JS eval block to render specific sprite !!!
+        style = {{
+            height: SPRITE_SIZE,
+            width: SPRITE_SIZE
+        }}
+    >
+        {props.tile}
+    </div>
 
 
 }
