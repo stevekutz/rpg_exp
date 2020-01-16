@@ -1,13 +1,26 @@
 import React from 'react';
 
+
+
+function getTileSprite(type){
+
+}
+
+
+
 function MapTile(props){
-    return <div> 0 </div>
+    return <div className = "tile"> {props.tile} </div>
 
 
 }
 
 function MapRow(props) {
-    return props.tiles.map(tile => <MapTile value = {tile} />)
+    return  <div className = "row">
+    {
+        props.tiles.map(tile => <MapTile tile = {tile} />)
+    }    
+            </div> 
+    
 
 }
 
