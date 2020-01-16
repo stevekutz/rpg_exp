@@ -32,7 +32,7 @@ export default function handleMovement(player){
 
         store.dispatch({
             type: 'MOVE_PLAYER',
-            playload: {
+            payload: {
                 position: getNewPosition(direction)
             }
         })
