@@ -11,6 +11,13 @@ export default function handleMovement(player){
 
     function getNewPosition(oldPos, direction){
 
+        console.log('oldPos[] ', oldPos[0]);
+        console.log('oldPos[1]', oldPos[1])
+
+        // ex. a step east counts as +40px to right, so we add SPRITE_SIZE to original oldPos[0]
+        //    New position is [40,0]
+        // Now a step west counts as -40px to left, so we subtract SPRITE_SIZE from oldPos[0]
+        //    New position is [0,0]
         switch(direction){
             case 'WEST':
                 return [ oldPos[0]-SPRITE_SIZE, oldPos[1] ]
@@ -56,7 +63,7 @@ export default function handleMovement(player){
             payload: {
                 position: newPos,
                 // direction: direction,  // ES6 trick   same as just direction, 
-                direction,
+                direction,  // returns string e.g. 'WEST'
             }
         })
     }

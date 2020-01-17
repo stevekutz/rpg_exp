@@ -29,5 +29,6 @@ function mapStateToProps(state) {
 }
 
 
-// Player comp wrapped inside 
+// Player comp wrapped is inside handleMovement
+// this catches window event listener for keydown
 export default connect(mapStateToProps)(handleMovement(Player))
