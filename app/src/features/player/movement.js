@@ -30,7 +30,25 @@ export default function handleMovement(player){
 
 
         }
+    }  
+    
+    // makes character face and walk in given direction
+    function getSpriteLocation(direction){
+        switch(direction){
+            case 'SOUTH':
+                return `0px 0px`  // will `0px 40px` split head again?
+            case 'EAST':
+                return '0px 40px'
+            case 'WEST':
+                return '0px 80px'
+            case 'NORTH':
+                return '0px 120px'        
+
+        }
+
     }    
+
+
         
     function observeBoundaries(oldPos, newPos){
         // set up to return a predicate, e.g. return bool
@@ -64,6 +82,7 @@ export default function handleMovement(player){
                 position: newPos,
                 // direction: direction,  // ES6 trick   same as just direction, 
                 direction,  // returns string e.g. 'WEST'
+                spriteLocation: getSpriteLocation(direction),
             }
         })
     }
