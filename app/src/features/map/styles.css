@@ -1,11 +1,10 @@
 .tile {
     display: inline-flex;
-    background-color: green;
 }
 
 .row {
-    padding: 0;
     margin: 0;
+    background-color: green;
 }
 
 .grass {

@@ -48,13 +48,15 @@ export default function handleMovement(player){
     }
 
 
-    function dispatchMove(newPos){
+    function dispatchMove(direction, newPos){
         
         
         store.dispatch({
             type: 'MOVE_PLAYER',
             payload: {
-                position: newPos
+                position: newPos,
+                // direction: direction,  // ES6 trick   same as just direction, 
+                direction,
             }
         })
     }
@@ -64,7 +66,7 @@ export default function handleMovement(player){
         const newPos = getNewPosition(oldPos, direction)
         
         if(observeBoundaries(oldPos, newPos) && observeImpassable(oldPos, newPos)){
-            dispatchMove(newPos)
+            dispatchMove(direction, newPos)
         }
 
     }
