@@ -1,13 +1,49 @@
 import React from 'react';
+import {SPRITE_SIZE} from '../../config/constants';
+import {connect} from 'react-redux';
+import './styles.css'
+
+// set up so that sprite with case 5 & up CANNOT be walked through
+function getTileSprite(type){
+    switch(type) {
+        case 0:
+            return 'grass'
+
+        case 5:
+            return 'rock'
+        case 6:
+            return 'tree'        
+    }
+}
+
+
 
 function MapTile(props){
-    return <div> 0 </div>
+    return <div 
+    
 
-
+        //className = "tile"                                // NOTICE THIS !!!
+        className = {`tile ${getTileSprite(props.tile)}`}  // use JS eval block to render specific sprite !!!
+        style = {{
+            height: SPRITE_SIZE,
+            width: SPRITE_SIZE
+        }}
+    />
 }
 
 function MapRow(props) {
-    return props.tiles.map(tile => <MapTile value = {tile} />)
+    return ( 
+        <div 
+            className = "row"
+            style = {{
+                height: SPRITE_SIZE,
+            }}
+            >
+            {
+                props.tiles.map(tile => <MapTile tile = {tile} />)
+            }    
+        </div> 
+    )
 
 }
 
@@ -30,11 +66,18 @@ const Map = (props) => {
         >  
             {
                 props.tiles.map(row => <MapRow tiles = {row} /> )  
+
             }
         
         </div>
     )
 }
 
+function mapStateToProps(state){
+    return {
+        tiles: state.map.tiles,
+    }
+}
 
-export default Map;
+//export default Map;
+export default connect(mapStateToProps)(Map);
