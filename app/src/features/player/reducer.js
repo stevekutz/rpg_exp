@@ -1,4 +1,4 @@
-// manages PLayer comp state
+// manages Player comp state
 // action is what we dispatch to reducer
 
 const initialState = {

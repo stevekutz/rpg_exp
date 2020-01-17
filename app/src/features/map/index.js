@@ -1,6 +1,6 @@
 import React from 'react';
 import {SPRITE_SIZE} from '../../config/constants';
-
+import {connect} from 'react-redux';
 import './styles.css'
 
 // set up so that sprite with case 5 & up CANNOT be walked through
@@ -32,17 +32,18 @@ function MapTile(props){
 }
 
 function MapRow(props) {
-    return  <div 
-        className = "row"
-        style = {{
-            height: SPRITE_SIZE,
-        }}
-        >
-    {
-        props.tiles.map(tile => <MapTile tile = {tile} />)
-    }    
-            </div> 
-    
+    return ( 
+        <div 
+            className = "row"
+            style = {{
+                height: SPRITE_SIZE,
+            }}
+            >
+            {
+                props.tiles.map(tile => <MapTile tile = {tile} />)
+            }    
+        </div> 
+    )
 
 }
 
@@ -65,11 +66,18 @@ const Map = (props) => {
         >  
             {
                 props.tiles.map(row => <MapRow tiles = {row} /> )  
+
             }
         
         </div>
     )
 }
 
+function mapStateToProps(state){
+    return {
+        tiles: state.map.tiles,
+    }
+}
 
-export default Map;
+//export default Map;
+export default connect(mapStateToProps)(Map);
