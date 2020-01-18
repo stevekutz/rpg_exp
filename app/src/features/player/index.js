@@ -28,7 +28,7 @@ function mapStateToProps(state) {
     }
 }
 
-
 // Player comp wrapped is inside handleMovement
-// this catches window event listener for keydown
+// this catches window event listener for action-movement keys
+// since this is a connected component, Player is connected to stor
 export default connect(mapStateToProps)(handleMovement(Player))

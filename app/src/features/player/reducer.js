@@ -9,6 +9,7 @@ const initialState = {
     walkIndex: 0,
 }
 
+//  pure function that receives state and action obj(type & payload) and returns new state
 const playerReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'MOVE_PLAYER':

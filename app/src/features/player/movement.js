@@ -81,8 +81,14 @@ export default function handleMovement(player){
     function dispatchMove(direction, newPos){
         const walkIndex = getWalkIndex()
         
+        // typical action creator(function that creates actions) is in a actions file that 
+        // exports the individual action
+        // the view(smart component that is tied to state) imports the actions and used them 
+        // with UI changes, effects occur, etc.
+            // Like our action creator, except .store.dispatch() used to send action to store
+
         store.dispatch({
-            type: 'MOVE_PLAYER',
+            type: 'MOVE_PLAYER',  // type & payload are part of our 'action', MOVE_PLAYER is 'action_type'
             payload: {
                 position: newPos,
                 // direction: direction,  // ES6 trick   same as just direction, 
