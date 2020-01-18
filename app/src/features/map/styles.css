@@ -26,3 +26,9 @@
     background-position: center;
 }
 
+.chest {
+    background-image: url('/tiles/chest.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
