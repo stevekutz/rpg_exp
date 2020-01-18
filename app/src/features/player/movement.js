@@ -30,7 +30,30 @@ export default function handleMovement(player){
 
 
         }
+    }  
+    
+    // makes character face and walk in given direction
+    // default facing SOUTH which is position [0,0] in playyer_walk.png
+
+    function getSpriteLocation(direction, walkIndex){
+        switch(direction){
+            case 'SOUTH':
+                return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE*0}px`  
+            case 'EAST':
+                return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE*1}px`
+            case 'WEST':
+                return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE*2}px`
+            case 'NORTH':
+                return `${SPRITE_SIZE*walkIndex}px ${SPRITE_SIZE*3}px`
+
+        }
+
     }    
+
+    function getWalkIndex(){
+        const walkIndex = store.getState().player.walkIndex
+        return walkIndex >= 7 ? 0 : walkIndex + 1
+    }
         
     function observeBoundaries(oldPos, newPos){
         // set up to return a predicate, e.g. return bool
@@ -56,7 +79,7 @@ export default function handleMovement(player){
 
 
     function dispatchMove(direction, newPos){
-        
+        const walkIndex = getWalkIndex()
         
         store.dispatch({
             type: 'MOVE_PLAYER',
@@ -64,6 +87,8 @@ export default function handleMovement(player){
                 position: newPos,
                 // direction: direction,  // ES6 trick   same as just direction, 
                 direction,  // returns string e.g. 'WEST'
+                walkIndex,
+                spriteLocation: getSpriteLocation(direction, walkIndex),
             }
         })
     }
