@@ -62,7 +62,7 @@ const Map = (props) => {
                 height: '400px',
                 // backgroundColor: 'green',   // we will populate background with tiles for shapes(e.g. rock, tree)
                 border: '4px solid white',
-
+                boxSizing: "content-box"
 
                 
             }}
