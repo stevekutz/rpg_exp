@@ -11,8 +11,8 @@ export default function handleMovement(player){
 
     function getNewPosition(oldPos, direction){
 
-        console.log('oldPos[] ', oldPos[0]);
-        console.log('oldPos[1]', oldPos[1])
+       // console.log('oldPos[] ', oldPos[0]);
+       // console.log('oldPos[1]', oldPos[1])
 
         // ex. a step east counts as +40px to right, so we add SPRITE_SIZE to original oldPos[0]
         //    New position is [40,0]
@@ -50,6 +50,13 @@ export default function handleMovement(player){
 
     }    
 
+    function getTileType() {
+        
+
+
+    }
+
+
     function getWalkIndex(){
         const walkIndex = store.getState().player.walkIndex
         return walkIndex >= 7 ? 0 : walkIndex + 1
@@ -67,11 +74,20 @@ export default function handleMovement(player){
 
     function observeImpassable(oldPos, newPos){
         // see 41:51
-        const tiles = store.getState().map.tiles
+
+        const tiles = store.getState().map.tiles;
+
         const y = newPos[1] / SPRITE_SIZE 
         const x = newPos[0] / SPRITE_SIZE
         
+
+        console.log('position:', [x,y]);
         const nextTile = tiles[y][x]
+        
+        switch(nextTile){
+            case 4:
+                console.log("you found treasure");
+        }
 
         return nextTile < 5
 

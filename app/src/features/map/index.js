@@ -22,6 +22,8 @@ function getTileSprite(type){
 
 
 function MapTile(props){
+
+
     return <div 
     
 
@@ -62,7 +64,7 @@ const Map = (props) => {
                 height: '400px',
                 // backgroundColor: 'green',   // we will populate background with tiles for shapes(e.g. rock, tree)
                 border: '4px solid white',
-                boxSizing: "content-box"
+                boxSizing: "content-box" // needed to resolve overflow with Semantic UI React
 
                 
             }}
